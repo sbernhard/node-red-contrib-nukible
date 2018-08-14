@@ -1,0 +1,264 @@
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="nukible-credentials">
+    <div class="form-row">
+        <label for="node-config-input-app_id"><i class="fa fa-user">Nuki Name</i></label>
+        <input type="text" id="node-config-input-nuki_name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-app_id"><i class="fa fa-user">AppID</i></label>
+        <input type="text" id="node-config-input-app_id">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-nuki_locks_pid"><i class="fa fa-user">PID</i></label>
+        <input type="text" id="node-config-input-nuki_locks_pid">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-nuki_locks_uuid"><i class="fa fa-user">UUID</i></label>
+        <input type="password" id="node-config-input-nuki_locks_uuid">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-nuki_locks_authid"><i class="fa fa-user">AuthID</i></label>
+        <input type="password" id="node-config-input-nuki_locks_authid">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-nuki_locks_sharedsecret"><i class="fa fa-user">Shared Secret</i></label>
+        <input type="password" id="node-config-input-nuki_locks_sharedsecret">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="nukible-credentials">
+    <p>Configure the Nukible Credentials</p>
+</script>
+
+<script type="text/javascript">
+(function() {
+    RED.nodes.registerType('nukible-credentials',{
+        category: 'config',
+        defaults: {
+            nuki_name: { value: "" },
+            app_id: { value: "" },
+            nuki_locks_pid: { value: "" },
+            nuki_locks_uuid: { value: "" },
+            nuki_locks_authid: { value: "" },
+            nuki_locks_sharedsecret: { value: "" }
+        },
+        credentials: {
+            nuki_name: { type: "text" },
+            app_id: { type: "text" },
+            nuki_locks_pid: { type: "text" },
+            nuki_locks_uuid: { type: "password" },
+            nuki_locks_authid: { type: "password" },
+            nuki_locks_sharedsecret: { type: "password" }
+        },
+        label: function() {
+            return this.nuki_name || "Nuki Home";
+        }
+    });
+})();
+</script>
+
+<script type="text/x-red" data-template-name="nukible-lock">
+    <div class="form-row">
+        <label for="node-input-nukible"><i class="fa fa-user"></i> <span data-i18n="nukible.label.nukible-id"></span></label>
+        <input type="text" id="node-input-nukible">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="nukible-lock">
+    <p>Locks the Nuki lock</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('nukible-lock',{
+        category: 'nuki',
+        color:"#fdf0c2",
+        defaults: {
+            nukible: { value: "", type: "nukible-credentials", required: true },
+            name: { value: "nukible-lock" }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "nuki.png",
+        label: function() {
+            return this.name || 'nukible-lock';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="nukible-unlock">
+    <div class="form-row">
+        <label for="node-input-nukible"><i class="fa fa-user"></i> <span data-i18n="nukible.label.nukible-id"></span></label>
+        <input type="text" id="node-input-nukible">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="nukible-unlock">
+    <p>Unlocks the Nuki lock</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('nukible-unlock',{
+        category: 'nuki',
+        color:"#fdf0c2",
+        defaults: {
+            nukible: { value: "", type: "nukible-credentials", required: true },
+            name: { value: "nukible-unlock" }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "nuki.png",
+        label: function() {
+            return this.name || 'nukible-unlock';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="nukible-unlatch">
+    <div class="form-row">
+        <label for="node-input-nukible"><i class="fa fa-user"></i> <span data-i18n="nukible.label.nukible-id"></span></label>
+        <input type="text" id="node-input-nukible">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="nukible-unlatch">
+    <p>Unlatchs the Nuki lock</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('nukible-unlatch',{
+        category: 'nuki',
+        color:"#fdf0c2",
+        defaults: {
+            nukible: { value: "", type: "nukible-credentials", required: true },
+            name: { value: "nukible-unlatch" }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "nuki.png",
+        label: function() {
+            return this.name || 'nukible-unlatch';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="nukible-lock-n-go">
+    <div class="form-row">
+        <label for="node-input-nukible"><i class="fa fa-user"></i> <span data-i18n="nukible.label.nukible-id"></span></label>
+        <input type="text" id="node-input-nukible">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="nukible-lock-n-go">
+    <p>Lock'n'go the Nuki lock</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('nukible-lock-n-go',{
+        category: 'nuki',
+        color:"#fdf0c2",
+        defaults: {
+            nukible: { value: "", type: "nukible-credentials", required: true },
+            name: { value: "nukible-lock-n-go" }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "nuki.png",
+        label: function() {
+            return this.name || 'nukible-lock-n-go';
+        }
+    });
+</script>
+
+
+<script type="text/x-red" data-template-name="nukible-lock-n-go-with-unlatch">
+    <div class="form-row">
+        <label for="node-input-nukible"><i class="fa fa-user"></i> <span data-i18n="nukible.label.nukible-id"></span></label>
+        <input type="text" id="node-input-nukible">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="nukible-lock-n-go-with-unlatch">
+    <p>Lock'n'go with unlatch the Nuki lock</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('nukible-lock-n-go-with-unlatch',{
+        category: 'nuki',
+        color:"#fdf0c2",
+        defaults: {
+            nukible: { value: "", type: "nukible-credentials", required: true },
+            name: { value: "nukible-lock-n-go-with-unlatch" }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "nuki.png",
+        label: function() {
+            return this.name || 'nukible-lock-no-go-with-unlatch';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="nukible-state">
+    <div class="form-row">
+        <label for="node-input-nukible"><i class="fa fa-user"></i> <span data-i18n="nukible.label.nukible-id"></span></label>
+        <input type="text" id="node-input-nukible">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="nukible-state">
+    <p>Collects the current state of the Nuki lock</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('nukible-state',{
+        category: 'nuki',
+        color:"#fdf0c2",
+        defaults: {
+            nukible: { value: "", type: "nukible-credentials", required: true },
+            name: { value: "nukible-state" }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "nuki.png",
+        label: function() {
+            return this.name || 'nukible-state';
+        }
+    });
+</script>
