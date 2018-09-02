@@ -32,6 +32,5 @@
   },
   "homepage": "https://github.com/sbernhard/node-red-contrib-nukible",
   "dependencies": {
-    "nukible": "^1.0.10"
   }
 }
