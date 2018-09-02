@@ -47,6 +47,8 @@ Step by step instruction by using the sbernhard/nukible my-master branch:
 - Add the credentials where were printed while paring to the nuki-credentials
 - Deploy it and use it!
 
+![Node-RED Nuki Node](/doc/nuki-node.png)
+
 ## Thanks
 - Thanks to "as19git67" for the nodejs module "nukible" which this node-red node uses.
 - Thanks to https://nuki.io for the really great smart lock!
