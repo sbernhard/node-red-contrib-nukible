@@ -59,5 +59,5 @@ Step by step instruction by using the sbernhard/nukible my-master branch:
 
 # Copyright
 
-Copyright(c) 2017 Bernhard Suttner / https://bernhard-suttner.de
+Copyright(c) 2018 Bernhard Suttner / https://bernhard-suttner.de
 
