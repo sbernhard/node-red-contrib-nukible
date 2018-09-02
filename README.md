@@ -1,5 +1,7 @@
 # node-red-contrib-nukible
 
+## USE AT YOUR OWN RISK 
+
 A <a href="http://nodered.org" target="_new">Node-RED</a> node to control a Nuki smart lock.
 For more information regarding Nuki, have a look at https://nuki.io
 
@@ -52,3 +54,10 @@ Step by step instruction by using the sbernhard/nukible my-master branch:
 ## Thanks
 - Thanks to "as19git67" for the nodejs module "nukible" which this node-red node uses.
 - Thanks to https://nuki.io for the really great smart lock!
+
+## USE AT YOUR OWN RISK 
+
+# Copyright
+
+Copyright(c) 2017 Bernhard Suttner / https://bernhard-suttner.de
+
