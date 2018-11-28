@@ -16,20 +16,11 @@ The node uses the open source javascript library https://github.com/as19git67/nu
 
 Have a look at https://nodered.org/docs/getting-started/adding-nodes how to install a node:
 
-## Installation of nukible
+## Installation of node-red-contrib-nukible
 
-Unfortunately, nukible isn't available on npm yet.
-You can use the original source at https://github.com/as19git67/nukible.
-Right now two Pull Requests are necessary to run nukible successfully. 
-Add the PR number 8 and 9 of the original source manually or use the branch my-master of the the repo https://github.com/sbernhard/nukible
+Run the following command in the root directory of your Node-RED install or use the "Manage palette"
 
-Step by step instruction by using the sbernhard/nukible my-master branch:
-- Change to the node-red-contrib-nukible directory (e.g. $HOME/.node-red/node_modules/node-red-contrib-nukible)
-- mkdir node_modules
-- cd node_modules
-- git clone https://github.com/sbernhard/nukible --branch my-master
-- cd nukible
-- read the installation instruction in README.md of nukible (do at least "npm install" and install all dependencies carefully!)
+    npm install node-red-contrib-nukible
 
 ## Pair with Nuki lock
 - Change to the nukible directory (e.g. $HOME/.node-red/node_modules/node-red-contrib-nukible/node_modules/nukible/)
@@ -60,4 +51,3 @@ Step by step instruction by using the sbernhard/nukible my-master branch:
 # Copyright
 
 Copyright(c) 2018 Bernhard Suttner / https://bernhard-suttner.de
-
